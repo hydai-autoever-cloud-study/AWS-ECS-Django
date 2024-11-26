@@ -47,7 +47,7 @@ jobs:
       - name: AWS Role 을 이용한 로그인
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::941377122831:policy/django_image_push
+          role-to-assume: arn:aws:iam::941377122831:role/django_image_push
           role-session-name: sampleSessionName
           aws-region: ap-northeast-2
 
