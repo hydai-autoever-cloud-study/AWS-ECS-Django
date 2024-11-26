@@ -43,6 +43,13 @@ jobs:
           docker build -t $REPO .
           docker tag $REPO:latest $NAME/$REPO:$IMAGE_TAG
           docker push $NAME/$REPO:$IMAGE_TAG
+          
+      - name: AWS Role 을 이용한 로그인
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::941377122831:role/django-image-push
+          role-session-name: sampleSessionName
+          aws-region: ap-northeast-2
 
       - name: Login to Amazon ECR
         id: login-ecr
